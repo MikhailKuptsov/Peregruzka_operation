@@ -1,9 +1,7 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 
 using namespace std;
-
-/*Надо убрать read и display, а вместо них переопределить операции ввода вывода*/
 
 class Fraction {
 private:
@@ -42,10 +40,8 @@ public:
     Fraction operator+(Fraction& a)  // сложение
     {
         double one, two;
-        one = a.second;
+        one = a.first;
         two = a.second;
-        one += a.first;
-        two += a.second;
         int num10 = one.transferTo10() + two.transferTo10();
         cout << "Sum: " << one + two << endl;
         return num10;
@@ -55,10 +51,8 @@ public:
     Fraction operator-(Fraction& a)  //разность
     {
         double one, two;
-        one = a.second;
+        one = a.first;
         two = a.second;
-        one += a.first;
-        two += a.second;
         int num10 = one.transferTo10() - two.transferTo10();
         cout << "Sum: " << one - two << endl;
         return num10;
@@ -68,10 +62,8 @@ public:
     Fraction operator*(Fraction& a)  //умножение
     {
         double one, two;
-        one = a.second;
+        one = a.first;
         two = a.second;
-        one += a.first;
-        two += a.second;
         int num10 = one.transferTo10() * two.transferTo10();
         cout << "Mul: " << one * two << endl;
         return num10;
@@ -79,7 +71,7 @@ public:
 
 
     //Равенство
-    static void operator==(Fraction a, Fraction b) {
+    static void equal(Fraction a, Fraction b) {
         double one, two;
         one = a.second;
         while (one > 1)
@@ -118,7 +110,5 @@ int main()
     A = N + M;
     A = N - M;
     A = N * M;
-    if (N == M) {
-        cout << "True";
-    };
+    A.equal(N, M);
 }
